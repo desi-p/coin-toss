@@ -37,12 +37,26 @@ const server = http.createServer((req, res) => {
       res.write(data);
       res.end();
     });
+  //load javascript
   }else if (page == '/js/main.js'){
     fs.readFile('js/main.js', function(err, data) {
       res.writeHead(200, {'Content-Type': 'text/javascript'});
       res.write(data);
       res.end();
     });
+  //load heads image
+  } else if (page == '/images/heads.png') {
+    fs.readFile('images/heads.png', function(err, data){
+      res.writeHead(200, {'Content-Type': 'image/png'})
+      res.write(data)
+      res.end()
+    })
+  } else if (page == '/images/tails.png'){
+    fs.readFile('images/tails.png', function(err, data){
+      res.writeHead(200, {'Content-Type': 'image/png'})
+      res.write(data)
+      res.end()
+    })
   }else{
     figlet('404!!', function(err, data) {
       if (err) {
