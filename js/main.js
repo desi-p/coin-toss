@@ -10,10 +10,9 @@ flipButton.addEventListener('click', makeReq)
 async function makeReq(){
   const res = await fetch(`/api`)
   const data = await res.json()
-  //console.data
 
   flipAndTrackCoin(data)
-  updateStats(3000)
+  updateStatsDelay(3000)
   disableButton()
 }
 
@@ -56,5 +55,5 @@ async function makeReq(){
     coin.style.animation = 'none'
     heads = 0;
     tails = 0
-    updateStats(0)
+    updateStatsDelay(0)
   })
